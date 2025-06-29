@@ -1,4 +1,4 @@
-plugin: vmware.vmware.vms
+plugin: vmware.vmware.vmware_vm_inventory
 hostname: "{{ lookup('env', 'VCENTER_HOST') }}"
 username: "{{ lookup('env', 'VCENTER_USER') }}"
 password: "{{ lookup('env', 'VCENTER_PASSWORD') }}"
@@ -9,3 +9,4 @@ properties:
   - name
   - guest.ipAddress
   - summary.runtime.powerState
+
