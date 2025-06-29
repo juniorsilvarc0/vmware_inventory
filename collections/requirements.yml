@@ -1,4 +1,5 @@
 collections:
   - name: vmware.vmware_rest
+    version: "4.7.0"
   - name: vmware.vmware
-
+    version: "2.0.0"
