@@ -1,0 +1,12 @@
+---
+- name: Verificar VMware collection
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Verificar se vmware.vmware_rest está instalada
+      ansible.builtin.command: ansible-galaxy collection list | grep vmware
+      register: result
+
+    - name: Mostrar resultado
+      debug:
+        var: result.stdout_lines
