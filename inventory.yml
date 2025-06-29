@@ -1,4 +1,4 @@
-plugin: community.vmware.vmware_vm_inventory
+plugin: vmware.vmware.vms
 hostname: "{{ lookup('env', 'VCENTER_HOST') }}"
 username: "{{ lookup('env', 'VCENTER_USER') }}"
 password: "{{ lookup('env', 'VCENTER_PASSWORD') }}"
