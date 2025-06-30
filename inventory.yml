@@ -3,10 +3,18 @@ hostname: "{{ lookup('env', 'VCENTER_HOST') }}"
 username: "{{ lookup('env', 'VCENTER_USER') }}"
 password: "{{ lookup('env', 'VCENTER_PASSWORD') }}"
 validate_certs: false
-with_tags: true
 strict: false
+with_tags: true
+
+# Define como o Ansible se conecta às VMs
 compose:
-  ansible_host: config.network.vnic[0].spec.ip.ipAddress
+  ansible_host: guest.ipAddress
+
+# Nome do host no inventário
+hostnames:
+  - config.name
+
+# Agrupamento baseado nas tags
 keyed_groups:
-  - key: config.product.name
+  - key: tag
     separator: "_"
