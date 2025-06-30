@@ -1,4 +1,4 @@
-plugin: community.vmware.vmware_vm_inventory
+plugin: vmware.vmware.vms
 hostname: "{{ lookup('env', 'VCENTER_HOST') }}"
 username: "{{ lookup('env', 'VCENTER_USER') }}"
 password: "{{ lookup('env', 'VCENTER_PASSWORD') }}"
@@ -6,15 +6,12 @@ validate_certs: false
 strict: false
 with_tags: true
 
-# Define como o Ansible se conecta às VMs
 compose:
   ansible_host: guest.ipAddress
 
-# Nome do host no inventário
 hostnames:
   - config.name
 
-# Agrupamento baseado nas tags
 keyed_groups:
   - key: tag
     separator: "_"
