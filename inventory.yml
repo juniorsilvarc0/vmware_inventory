@@ -1,16 +1,12 @@
----
-plugin: community.vmware.vmware_vm_inventory
+plugin: community.vmware.vmware_host_inventory
 hostname: "{{ lookup('env', 'VCENTER_HOST') }}"
 username: "{{ lookup('env', 'VCENTER_USER') }}"
 password: "{{ lookup('env', 'VCENTER_PASSWORD') }}"
 validate_certs: false
-datacenter: "ATI-SLC-HCI"
 with_tags: true
 strict: false
-hostnames:
-  - config.name
 compose:
-  ansible_host: guest.ipAddress
+  ansible_host: config.network.vnic[0].spec.ip.ipAddress
 keyed_groups:
-  - key: tags
+  - key: config.product.name
     separator: "_"
