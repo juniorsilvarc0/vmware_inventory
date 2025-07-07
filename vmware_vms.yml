@@ -1,0 +1,16 @@
+plugin: vmware.vmware.vms
+
+hostname: "{{ lookup('env', 'VCENTER_HOST') }}"
+username: "{{ lookup('env', 'VCENTER_USER') }}"
+password: "{{ lookup('env', 'VCENTER_PASSWORD') }}"
+validate_certs: "{{ lookup('env', 'VCENTER_VALIDATE_CERTS') | default('false') | bool }}"
+
+strict: false
+properties:
+  - name
+  - guest
+  - config.name
+  - config.uuid
+  - summary.runtime.powerState
+hostnames:
+  - config.name
