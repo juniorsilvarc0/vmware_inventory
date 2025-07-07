@@ -1,17 +1,12 @@
-plugin: vmware.vmware.vms
-hostname: "{{ lookup('env', 'VCENTER_HOST') }}"
-username: "{{ lookup('env', 'VCENTER_USER') }}"
-password: "{{ lookup('env', 'VCENTER_PASSWORD') }}"
+plugin: community.vmware.vmware_vm_inventory
 validate_certs: false
-strict: false
-with_tags: true
-
+with_tags: false
+group_by:
+  - datacenter
+  - guest_id
+  - folder
+  - custom_attribute
+filters:
+  - power_state: poweredOn
 compose:
-  ansible_host: guest.ipAddress
-
-hostnames:
-  - config.name
-
-keyed_groups:
-  - key: tag
-    separator: "_"
+  ansible_host: guest_ip_address
