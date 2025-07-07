@@ -1,14 +1,14 @@
----
-plugin: community.vmware.vmware_vm_inventory
+plugin: vmware.vmware.vms
 hostname: "{{ vcenter_hostname }}"
 username: "{{ vcenter_username }}"
 password: "{{ vcenter_password }}"
 validate_certs: false
 with_tags: true
-hostnames:
-  - config.name
+query_parameters:
+  - property: config.name
 compose:
-  ansible_host: guest.hostName
+  ansible_host: guest.ipAddress
 keyed_groups:
-  - key: tags
+  - key: tag
+    prefix: ""
     separator: ''
