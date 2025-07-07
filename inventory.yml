@@ -1,4 +1,5 @@
 plugin: constructed
 strict: false
-inventory:
-  - vmware_vms.yml
+vars:
+  _plugin: include_vars
+  _filename: vmware_vms.yml
