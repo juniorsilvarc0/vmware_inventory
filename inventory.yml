@@ -1,16 +1,14 @@
 ---
 plugin: community.vmware.vmware_vm_inventory
-validate_certs: false
-with_tags: false
 hostname: "{{ vcenter_hostname }}"
 username: "{{ vcenter_username }}"
 password: "{{ vcenter_password }}"
-group_by:
-  - datacenter
-  - guest_id
-  - folder
-  - custom_attribute
-filters:
-  - power_state: poweredOn
+validate_certs: false
+with_tags: true
+hostnames:
+  - config.name
 compose:
-  ansible_host: guest_ip_address
+  ansible_host: guest.hostName
+keyed_groups:
+  - key: tags
+    separator: ''
