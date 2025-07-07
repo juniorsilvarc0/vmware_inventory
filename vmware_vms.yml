@@ -1,8 +1,0 @@
-plugin: vmware.vmware.vms
-
-hostname: '{{ lookup("env", "VCENTER_HOST") }}'
-username: '{{ lookup("env", "VCENTER_USER") }}'
-password: '{{ lookup("env", "VCENTER_PASSWORD") }}'
-validate_certs: '{{ lookup("env", "VCENTER_VALIDATE_CERTS") | bool }}'
-
-strict: false

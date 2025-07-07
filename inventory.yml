@@ -1,0 +1,4 @@
+plugin: constructed
+strict: false
+inventory:
+  - vmware_vms.yml
